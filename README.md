@@ -1,13 +1,13 @@
 # Adversarix Research
 
-Public research publications from [Adversarix](https://adversarix.com) — an autonomous
+Public research publications from [Adversarix](https://adversarix.com), an autonomous
 threat intelligence and response platform built around a live Threat Knowledge Graph.
 
 Adversarix continuously ingests threat intelligence, simulates adversarial behavior
 against an organization's real infrastructure topology, identifies detection gaps, and
 synthesizes prioritized advisories without waiting for human initiation. These papers
-document the methods behind that platform — the simulation models, the measurement
-frameworks, and the threat-modeling approaches — for public reference and citation.
+document the methods behind that platform (the simulation models, the measurement
+frameworks, and the threat-modeling approaches) for public reference and citation.
 
 ---
 
@@ -21,7 +21,7 @@ frameworks, and the threat-modeling approaches — for public reference and cita
 Modern threat actors don't follow a single kill chain. They maintain technique
 repertoires and rotate between them in response to what your detection stack catches.
 This paper examines how the Adversarix platform addresses polymorphic attack chains
-through a six-agent autonomous pipeline built on a live Threat Knowledge Graph — running
+through a six-agent autonomous pipeline built on a live Threat Knowledge Graph, running
 five distinct adversarial simulation strategies and Monte Carlo probability modeling to
 characterize the full adversarial option space, not just a single representative path.
 
@@ -39,8 +39,8 @@ characterize the full adversarial option space, not just a single representative
 
 [→ Download PDF](./agentic-identity-pivots/Adversarix_Agentic_Identity_Pivots_Whitepaper.pdf)
 
-As enterprise estates go agentic — autonomous agents holding credentials, invoking tools,
-and reaching capability through MCP servers — shared-credential pivots become the dominant
+As enterprise estates go agentic, with autonomous agents holding credentials, invoking tools,
+and reaching capability through MCP servers, shared-credential pivots become the dominant
 lateral-movement surface. Most threat models represent credential abuse only as a technique
 label, which cannot express how far a compromise actually spreads. This paper describes how
 Adversarix adds an agent–credential–tool topology to the Threat Knowledge Graph and makes
@@ -48,7 +48,7 @@ the Monte Carlo breach simulation *traverse* it, so agentic lateral movement bec
 quantified term in breach probability.
 
 **Key findings:**
-- Pivot-success probability is governed by credential *posture*, not technique label: a static shared key scores 0.90, a delegation-attenuated token 0.20 — a 4.5× spread a technique-only model collapses
+- Pivot-success probability is governed by credential *posture*, not technique label: a static shared key scores 0.90, a delegation-attenuated token 0.20, a 4.5× spread a technique-only model collapses
 - A unified heterogeneous walk lets a single attack path interleave technique steps and credential pivots, with detection applied to pivots via the technique they realize
 - A structural regression lock guarantees the model is purely additive: estates with no identity topology reproduce the prior breach probability exactly
 
@@ -62,7 +62,7 @@ quantified term in breach probability.
 [→ Download PDF](./ttp-extraction-eval/Adversarix_TTP_Extraction_Eval_Whitepaper.pdf)
 
 Extracting MITRE ATT&CK techniques from unstructured threat reporting is a core pipeline
-primitive — and notoriously hard to measure well. This paper describes an evaluation
+primitive, and notoriously hard to measure well. This paper describes an evaluation
 framework built to be reproducible and honest: ground truth auto-derived from public CISA
 advisory tables (zero manual annotation), partial credit for parent–child technique matches,
 a substantiation split for the text-only ceiling, and F1 reported as a range across
@@ -70,7 +70,7 @@ non-deterministic runs. Accuracy is measured at both the document and sentence l
 three corpora of different provenance.
 
 **Key findings:**
-- F1 of 0.84–0.92 on 163 auto-derived ground-truth techniques with precision 0.92–0.94 — the extractor rarely hallucinates technique IDs
+- F1 of 0.84–0.92 on 163 auto-derived ground-truth techniques with precision 0.92–0.94, so the extractor rarely hallucinates technique IDs
 - Parent-match partial credit resolves a systematic cross-corpus granularity mismatch that exact-match scoring double-penalizes
 - A near-zero threat-model coverage delta is reported as a genuine result: ~84% of cited techniques are already present from actor- and campaign-level signals
 
@@ -83,7 +83,7 @@ three corpora of different provenance.
 
 [→ Download PDF](./detection-posteriors/Adversarix_Empirical_Detection_Posteriors_Whitepaper.pdf)
 
-Breach simulations usually model detection as an assumption — a technique is "covered" if a
+Breach simulations usually model detection as an assumption: a technique is "covered" if a
 rule exists for it. But a deployed rule that never fires is not coverage. This paper describes
 how Adversarix feeds production SIEM telemetry back into the Monte Carlo breach simulation as a
 per-technique *empirical detection posterior*: a Beta distribution fit to real firing evidence
@@ -91,9 +91,9 @@ that replaces a global detection constant, raising breach probability where cove
 and lowering it where rules fire cleanly.
 
 **Key findings:**
-- A "deployed-blind" technique — rule present but required log source missing, so it cannot fire — is driven *below* the neutral prior, correcting illusory coverage
+- A "deployed-blind" technique (rule present but required log source missing, so it cannot fire) is driven *below* the neutral prior, correcting illusory coverage
 - Detection *uncertainty* propagates: the simulation samples the posterior per iteration, so a technique with three firings is treated as less certain than one with three thousand
-- A byte-identical fallback guarantees organizations without SIEM telemetry see no change in breach probability — the mechanism is purely additive
+- A byte-identical fallback guarantees organizations without SIEM telemetry see no change in breach probability, so the mechanism is purely additive
 
 **Topics:** empirical Bayesian detection modeling · SIEM firing telemetry · Beta posterior fitting with count down-weighting · uncertainty propagation in Monte Carlo simulation · detection-posture feedback loops · regression-locked risk scoring
 
