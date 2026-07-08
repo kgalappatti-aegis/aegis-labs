@@ -1,6 +1,13 @@
 # Adversarix Research
 
-Public research publications from [Adversarix](https://adversarix.com) — builders of AEGIS, an autonomous threat intelligence and response platform.
+Public research publications from [Adversarix](https://adversarix.com) — an autonomous
+threat intelligence and response platform built around a live Threat Knowledge Graph.
+
+Adversarix continuously ingests threat intelligence, simulates adversarial behavior
+against an organization's real infrastructure topology, identifies detection gaps, and
+synthesizes prioritized advisories without waiting for human initiation. These papers
+document the methods behind that platform — the simulation models, the measurement
+frameworks, and the threat-modeling approaches — for public reference and citation.
 
 ---
 
@@ -11,20 +18,93 @@ Public research publications from [Adversarix](https://adversarix.com) — build
 
 [→ Download PDF](./polymorphic-attack-chains/Adversarix_Polymorphic_Attack_Chains_Whitepaper.pdf)
 
-Modern threat actors don't follow a single kill chain. They maintain technique repertoires and rotate between them in response to what your detection stack catches. This paper examines how the AEGIS v5 platform addresses polymorphic attack chains through a six-agent autonomous pipeline built on a live Threat Knowledge Graph — running five distinct adversarial simulation strategies and Monte Carlo probability modeling to characterize the full adversarial option space, not just a single representative path.
+Modern threat actors don't follow a single kill chain. They maintain technique
+repertoires and rotate between them in response to what your detection stack catches.
+This paper examines how the Adversarix platform addresses polymorphic attack chains
+through a six-agent autonomous pipeline built on a live Threat Knowledge Graph — running
+five distinct adversarial simulation strategies and Monte Carlo probability modeling to
+characterize the full adversarial option space, not just a single representative path.
 
 **Key findings:**
 - Reduced mean time from threat indicator ingestion to actionable advisory from 4–8 analyst hours to under 90 seconds
 - Increased simulated attack path coverage by more than 300% vs. manual simulation workflows
-- Evasion-first polymorphic chains demonstrated 34% higher Monte Carlo success probability when unpatched CVEs are present — quantifying marginal risk across all variant kill chains, not just the direct exploit path
+- Evasion-first polymorphic chains demonstrated 34% higher Monte Carlo success probability when unpatched CVEs are present
 
-**Topics covered:** polymorphic kill chain taxonomy · five-strategy simulation framework · Monte Carlo probability modeling · tactic-level detection gap analysis · LLM integration architecture · human-in-the-loop governance · prompt injection defense
+**Topics:** polymorphic kill chain taxonomy · five-strategy simulation framework · Monte Carlo probability modeling · tactic-level detection gap analysis · LLM integration architecture · human-in-the-loop governance
+
+---
+
+### Agentic Identity Pivots: Modeling Credential-Borne Lateral Movement in Breach Simulation
+**July 2026 · Version 1.0**
+
+[→ Download PDF](./agentic-identity-pivots/Adversarix_Agentic_Identity_Pivots_Whitepaper.pdf)
+
+As enterprise estates go agentic — autonomous agents holding credentials, invoking tools,
+and reaching capability through MCP servers — shared-credential pivots become the dominant
+lateral-movement surface. Most threat models represent credential abuse only as a technique
+label, which cannot express how far a compromise actually spreads. This paper describes how
+Adversarix adds an agent–credential–tool topology to the Threat Knowledge Graph and makes
+the Monte Carlo breach simulation *traverse* it, so agentic lateral movement becomes a real,
+quantified term in breach probability.
+
+**Key findings:**
+- Pivot-success probability is governed by credential *posture*, not technique label: a static shared key scores 0.90, a delegation-attenuated token 0.20 — a 4.5× spread a technique-only model collapses
+- A unified heterogeneous walk lets a single attack path interleave technique steps and credential pivots, with detection applied to pivots via the technique they realize
+- A structural regression lock guarantees the model is purely additive: estates with no identity topology reproduce the prior breach probability exactly
+
+**Topics:** agentic AI threat modeling · credential posture priors · MCP/tool reachability · heterogeneous graph traversal · bounded path explosion · regression-locked risk scoring
+
+---
+
+### Measuring TTP Extraction: A Reproducible Evaluation Framework for ATT&CK Technique Extraction from Threat Reports
+**July 2026 · Version 1.0**
+
+[→ Download PDF](./ttp-extraction-eval/Adversarix_TTP_Extraction_Eval_Whitepaper.pdf)
+
+Extracting MITRE ATT&CK techniques from unstructured threat reporting is a core pipeline
+primitive — and notoriously hard to measure well. This paper describes an evaluation
+framework built to be reproducible and honest: ground truth auto-derived from public CISA
+advisory tables (zero manual annotation), partial credit for parent–child technique matches,
+a substantiation split for the text-only ceiling, and F1 reported as a range across
+non-deterministic runs. Accuracy is measured at both the document and sentence level across
+three corpora of different provenance.
+
+**Key findings:**
+- F1 of 0.84–0.92 on 163 auto-derived ground-truth techniques with precision 0.92–0.94 — the extractor rarely hallucinates technique IDs
+- Parent-match partial credit resolves a systematic cross-corpus granularity mismatch that exact-match scoring double-penalizes
+- A near-zero threat-model coverage delta is reported as a genuine result: ~84% of cited techniques are already present from actor- and campaign-level signals
+
+**Topics:** ATT&CK technique extraction · zero-annotation corpus construction · parent–child partial-credit scoring · TRAM & AnnoCTR sentence-level benchmarks · non-determinism and multi-run evaluation · downstream coverage measurement
+
+---
+
+### Empirical Detection Posteriors: Closing the Loop from SIEM Firings to Breach Probability
+**July 2026 · Version 1.0**
+
+[→ Download PDF](./detection-posteriors/Adversarix_Empirical_Detection_Posteriors_Whitepaper.pdf)
+
+Breach simulations usually model detection as an assumption — a technique is "covered" if a
+rule exists for it. But a deployed rule that never fires is not coverage. This paper describes
+how Adversarix feeds production SIEM telemetry back into the Monte Carlo breach simulation as a
+per-technique *empirical detection posterior*: a Beta distribution fit to real firing evidence
+that replaces a global detection constant, raising breach probability where coverage is illusory
+and lowering it where rules fire cleanly.
+
+**Key findings:**
+- A "deployed-blind" technique — rule present but required log source missing, so it cannot fire — is driven *below* the neutral prior, correcting illusory coverage
+- Detection *uncertainty* propagates: the simulation samples the posterior per iteration, so a technique with three firings is treated as less certain than one with three thousand
+- A byte-identical fallback guarantees organizations without SIEM telemetry see no change in breach probability — the mechanism is purely additive
+
+**Topics:** empirical Bayesian detection modeling · SIEM firing telemetry · Beta posterior fitting with count down-weighting · uncertainty propagation in Monte Carlo simulation · detection-posture feedback loops · regression-locked risk scoring
 
 ---
 
 ## About Adversarix
 
-Adversarix builds AEGIS — an autonomous cybersecurity threat intelligence and response platform centered on a Threat Knowledge Graph. AEGIS continuously ingests threat intelligence, simulates adversarial behavior against live infrastructure topology, identifies detection gaps, and synthesizes prioritized advisories without waiting for human initiation.
+Adversarix is an autonomous cybersecurity threat intelligence and response platform
+centered on a Threat Knowledge Graph. It continuously ingests threat intelligence,
+simulates adversarial behavior against live infrastructure topology, identifies detection
+gaps, and synthesizes prioritized advisories without waiting for human initiation.
 
 [adversarix.com](https://adversarix.com) · [contact@adversarix.com](mailto:contact@adversarix.com)
 
@@ -32,15 +112,21 @@ Adversarix builds AEGIS — an autonomous cybersecurity threat intelligence and 
 
 ## Citation
 
-If you reference this research, please cite as:
+If you reference this research, please cite the relevant paper as:
 
 ```
-Galappatti, K. (2026). Polymorphic Attack Chains: Autonomous Detection, Simulation & Defense.
-Adversarix, Inc. https://github.com/kgalappatti-aegis/aegis-research
+Galappatti, K. (2026). <Paper Title>. Adversarix, Inc.
+https://github.com/kgalappatti-aegis/aegis-research
 ```
 
 ---
 
 ## License
 
-© 2026 Adversarix, Inc. This whitepaper is released for public reference and citation. Reproduction in whole or in part requires attribution. No rights are granted to the AEGIS platform software or its implementation.
+© 2026 Adversarix, Inc. These whitepapers are released for public reference and citation.
+Reproduction in whole or in part requires attribution. No rights are granted to the
+Adversarix platform software or its implementation.
+
+Third-party corpora referenced in the research (TRAM, Apache 2.0; AnnoCTR, CC-BY-SA-4.0)
+remain under their respective licenses. MITRE ATT&CK is a trademark of The MITRE
+Corporation.
