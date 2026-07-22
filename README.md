@@ -116,8 +116,11 @@ ATT&CK techniques from threat-intelligence reports — the ingestion step that
 feeds the Threat Knowledge Graph. Ships with a 20-report hand-labeled seed
 corpus (121 gold labels), scores strict and parent-level F1 with per-report
 miss/hallucination drill-downs, and compares any provider with an
-OpenAI-compatible endpoint via a single `config.yaml` entry. Companion code to
-the *Measuring TTP Extraction* whitepaper above.
+OpenAI-compatible endpoint via a single `config.yaml` entry. Related to the
+*Measuring TTP Extraction* whitepaper above but methodologically distinct: the
+paper evaluates the platform's extractor against auto-derived CISA ground
+truth, while this harness compares backend LLMs on a hand-labeled seed corpus
+with its own scoring rules.
 
 ---
 

@@ -5,9 +5,10 @@ A model-agnostic test harness that measures how well different LLMs extract
 **Kimi K3 (Moonshot)** vs **Claude (Anthropic)** vs **Qwen (DashScope)** — and
 anything else you add to `config.yaml`.
 
-Aligned with the AEGIS research program: TTP extraction is the ingestion step
-that feeds the Threat Knowledge Graph, so backend-model choice here directly
-affects advisory quality downstream.
+Part of [AEGIS Labs](https://github.com/kgalappatti-aegis/aegis-labs), the open
+research home of Adversarix: TTP extraction is the ingestion step that feeds the
+Threat Knowledge Graph, so backend-model choice here directly affects advisory
+quality downstream.
 
 ## What it measures
 
@@ -112,6 +113,13 @@ supports — the harness rewards precision, not actor-attribution guesses.
 
 ## Notes & caveats
 
+- This harness is **not** the evaluation framework from the *Measuring TTP
+  Extraction* whitepaper, and numbers are not comparable across the two. The
+  paper scores the platform's extractor against ground truth auto-derived from
+  CISA advisory tables, with half-credit parent matching, a substantiation
+  split, and F1 reported as a range over multiple runs. This harness compares
+  backend LLMs on a hand-labeled seed corpus and scores parent-level F1 by
+  collapsing sub-techniques to their parent (full credit).
 - The seed corpus is small; treat early numbers as directional. Score stabilizes
   as you add reports.
 - `response_format=json_object` is used for OpenAI-compatible models and
