@@ -1,13 +1,15 @@
-# Adversarix Research
+# AEGIS Labs
 
-Public research publications from [Adversarix](https://adversarix.com), an autonomous
-threat intelligence and response platform built around a live Threat Knowledge Graph.
+AEGIS Labs is the home for open-sourced research projects spun out of the commercial
+work we do at [Adversarix](https://adversarix.com), an autonomous threat intelligence
+and response platform built around a live Threat Knowledge Graph.
 
 Adversarix continuously ingests threat intelligence, simulates adversarial behavior
 against an organization's real infrastructure topology, identifies detection gaps, and
-synthesizes prioritized advisories without waiting for human initiation. These papers
-document the methods behind that platform (the simulation models, the measurement
-frameworks, and the threat-modeling approaches) for public reference and citation.
+synthesizes prioritized advisories without waiting for human initiation. The papers and
+projects here document the methods behind that platform (the simulation models, the
+measurement frameworks, and the threat-modeling approaches) for public reference,
+citation, and reuse.
 
 ---
 
@@ -119,8 +121,8 @@ gaps, and synthesizes prioritized advisories without waiting for human initiatio
 If you reference this research, please cite the relevant paper as:
 
 ```
-Galappatti, K. (2026). <Paper Title>. Adversarix, Inc.
-https://github.com/kgalappatti-aegis/aegis-research
+Galappatti, K. (2026). <Paper Title>. AEGIS Labs, Adversarix, Inc.
+https://github.com/kgalappatti-aegis/aegis-labs
 ```
 
 ---
