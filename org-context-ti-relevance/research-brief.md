@@ -1,6 +1,6 @@
 # Research Brief: Organizational Context as Signal for Threat Intelligence Relevance
 
-**Adversarix Research · July 2026 · Status: Internal brief — pre-publication**
+**AEGIS Labs · Adversarix Research · July 2026 · Status: Internal brief — pre-publication**
 
 ---
 
@@ -112,5 +112,7 @@ Additional sources reviewed: Liu et al. (USENIX Sec '15, incident forecasting), 
 **Evidence-type caveat.** Framework claims (§2.5) are normative expert consensus, not empirical validation. The strongest empirical results concern vulnerability-flavored intel with population-level exploitation as ground truth — a proxy, not org-specific victimization. The empirical case for sector/geography/size as independent predictors remains essentially untested.
 
 ---
+
+**Citation.** Galappatti, K. (2026). *Research Brief: Organizational Context as Signal for Threat Intelligence Relevance.* AEGIS Labs, Adversarix, Inc. https://github.com/kgalappatti-aegis/aegis-labs
 
 © 2026 Adversarix, Inc.
