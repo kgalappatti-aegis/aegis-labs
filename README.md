@@ -16,7 +16,7 @@ citation, and reuse.
 ## Publications
 
 ### Defending Against Polymorphic Attack Chains: How Autonomous Adversarial Simulation Closes the Detection Gap
-**April 2026 · Version 2.0**
+**July 2026 · Version 2.1**
 
 [→ Download PDF](./polymorphic-attack-chains/Adversarix_Polymorphic_Attack_Chains_Whitepaper.pdf)
 
@@ -41,7 +41,7 @@ from disclosure to advisory in under 90 seconds.
 ---
 
 ### Agentic Identity Pivots: Modeling Credential-Borne Lateral Movement in Breach Simulation
-**July 2026 · Version 1.0**
+**July 2026 · Version 1.1**
 
 [→ Download PDF](./agentic-identity-pivots/Adversarix_Agentic_Identity_Pivots_Whitepaper.pdf)
 
@@ -63,7 +63,7 @@ quantified term in breach probability.
 ---
 
 ### Measuring TTP Extraction: A Reproducible Evaluation Framework for ATT&CK Technique Extraction from Threat Reports
-**July 2026 · Version 1.0**
+**July 2026 · Version 1.1**
 
 [→ Download PDF](./ttp-extraction-eval/Adversarix_TTP_Extraction_Eval_Whitepaper.pdf)
 
@@ -85,7 +85,7 @@ three corpora of different provenance.
 ---
 
 ### Empirical Detection Posteriors: Closing the Loop from SIEM Firings to Breach Probability
-**July 2026 · Version 1.0**
+**July 2026 · Version 1.1**
 
 [→ Download PDF](./detection-posteriors/Adversarix_Empirical_Detection_Posteriors_Whitepaper.pdf)
 
