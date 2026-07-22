@@ -1,0 +1,41 @@
+# Models under test. Add/remove entries freely — the harness runs every model
+# listed here. `key` is the label used in reports; it must be unique.
+#
+# provider: "anthropic"          -> uses the official Anthropic SDK
+# provider: "openai_compatible"  -> uses the OpenAI SDK against base_url
+#
+# price_in / price_out are USD per 1M tokens, used only for the cost column.
+# Leave them null if you don't care about cost.
+
+models:
+  - key: claude-opus-4-8
+    provider: anthropic
+    model: claude-opus-4-8
+    max_tokens: 4096
+    price_in: 5.0
+    price_out: 25.0
+
+  # ---- Kimi K3 (Moonshot AI) --------------------------------------------
+  # NOTE: confirm the exact model id for K3 in the Moonshot console — the
+  # OpenAI-compatible `model` string is what matters here, not the marketing
+  # name. Common ids look like "kimi-k2-0905-preview"; set K3's id below.
+  - key: kimi-k3
+    provider: openai_compatible
+    model: kimi-k3                      # <-- CONFIRM exact Moonshot model id
+    api_key_env: MOONSHOT_API_KEY
+    base_url_env: KIMI_BASE_URL
+    base_url_default: https://api.moonshot.ai/v1
+    max_tokens: 4096
+    price_in: null
+    price_out: null
+
+  # ---- Qwen (Alibaba DashScope) -----------------------------------------
+  - key: qwen3-max
+    provider: openai_compatible
+    model: qwen3-max                    # <-- or qwen-max, qwen3-235b-a22b, etc.
+    api_key_env: DASHSCOPE_API_KEY
+    base_url_env: QWEN_BASE_URL
+    base_url_default: https://dashscope-intl.aliyuncs.com/compatible-mode/v1
+    max_tokens: 4096
+    price_in: null
+    price_out: null

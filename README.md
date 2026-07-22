@@ -105,6 +105,22 @@ and lowering it where rules fire cleanly.
 
 ---
 
+## Code & Tools
+
+### ttp-benchmark — TTP Extraction Benchmark
+
+[→ Browse the code](./ttp-benchmark/)
+
+A model-agnostic test harness measuring how well different LLMs extract MITRE
+ATT&CK techniques from threat-intelligence reports — the ingestion step that
+feeds the Threat Knowledge Graph. Ships with a 20-report hand-labeled seed
+corpus (121 gold labels), scores strict and parent-level F1 with per-report
+miss/hallucination drill-downs, and compares any provider with an
+OpenAI-compatible endpoint via a single `config.yaml` entry. Companion code to
+the *Measuring TTP Extraction* whitepaper above.
+
+---
+
 ## About Adversarix
 
 Adversarix is an autonomous cybersecurity threat intelligence and response platform
